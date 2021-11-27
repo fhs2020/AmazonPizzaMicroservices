@@ -1,0 +1,67 @@
+﻿using AmazonPizza.Web.Models;
+using AmazonPizza.Web.Services.IServices;
+
+namespace AmazonPizza.Web.Services
+{
+    public class ProductServcie : BaseService, IProductService
+    {
+        private readonly IHttpClientFactory _clientFactory;
+
+        public ProductServcie(IHttpClientFactory clientFactory) : base(clientFactory)
+        {
+            _clientFactory = clientFactory;
+        }
+
+        public async Task<T> CreateProductAsync<T>(ProductsDto productDto)
+        {
+            return await this.SendAsync<T>(new ApiRequest()
+            {
+                ApiType = SD.ApiType.POST,
+                Data = productDto,
+                Url = SD.ProductAPIBase + "/api/products",
+                AccessToken = ""
+            });
+        }
+
+        public async Task<T> DeleteProductAsync<T>(int id)
+        {
+            return await this.SendAsync<T>(new ApiRequest()
+            {
+                ApiType = SD.ApiType.DELETE,
+                Url = SD.ProductAPIBase + "/api/products"+id,
+                AccessToken = ""
+            });
+        }
+
+        public async Task<T> GetAllProductByIdAsync<T>(int id)
+        {
+            return await this.SendAsync<T>(new ApiRequest()
+            {
+                ApiType = SD.ApiType.GET,
+                Url = SD.ProductAPIBase + "/api/products"+id,
+                AccessToken = ""
+            });
+        }
+
+        public async Task<T> GetAllProductsAsync<T>()
+        {
+            return await this.SendAsync<T>(new ApiRequest()
+            {
+                ApiType = SD.ApiType.GET,
+                Url = SD.ProductAPIBase + "/api/products",
+                AccessToken = ""
+            });
+        }
+
+        public async Task<T> UpdateProductAsync<T>(ProductsDto productDto)
+        {
+            return await this.SendAsync<T>(new ApiRequest()
+            {
+                ApiType = SD.ApiType.PUT,
+                Data = productDto,
+                Url = SD.ProductAPIBase + "/api/products",
+                AccessToken = ""
+            });
+        }
+    }
+}

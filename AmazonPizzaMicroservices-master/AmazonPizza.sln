@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.31903.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{B6481CE3-0743-4C91-828A-E6E79326B23D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{284DBC28-CB9D-4E28-A309-0E1023714933}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmazonPizza.Web", "AmazonPizza.Web\AmazonPizza.Web.csproj", "{E3DC60E1-A164-4122-A347-7A79A4A9C191}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmazonPizza.Services.ProductAPI", "AmazonPizza.Services.ProductAPI\AmazonPizza.Services.ProductAPI.csproj", "{6C9ECA58-A659-4E8E-A074-86227C2B7ACB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3DC60E1-A164-4122-A347-7A79A4A9C191}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3DC60E1-A164-4122-A347-7A79A4A9C191}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3DC60E1-A164-4122-A347-7A79A4A9C191}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3DC60E1-A164-4122-A347-7A79A4A9C191}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C9ECA58-A659-4E8E-A074-86227C2B7ACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C9ECA58-A659-4E8E-A074-86227C2B7ACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C9ECA58-A659-4E8E-A074-86227C2B7ACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C9ECA58-A659-4E8E-A074-86227C2B7ACB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E3DC60E1-A164-4122-A347-7A79A4A9C191} = {B6481CE3-0743-4C91-828A-E6E79326B23D}
+		{6C9ECA58-A659-4E8E-A074-86227C2B7ACB} = {284DBC28-CB9D-4E28-A309-0E1023714933}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D790FCD-FEB8-4665-8FEF-1511C427A148}
+	EndGlobalSection
+EndGlobal
