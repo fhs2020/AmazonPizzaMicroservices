@@ -3,11 +3,11 @@ using AmazonPizza.Web.Services.IServices;
 
 namespace AmazonPizza.Web.Services
 {
-    public class ProductServcie : BaseService, IProductService
+    public class ProductService : BaseService, IProductService
     {
         private readonly IHttpClientFactory _clientFactory;
 
-        public ProductServcie(IHttpClientFactory clientFactory) : base(clientFactory)
+        public ProductService(IHttpClientFactory clientFactory) : base(clientFactory)
         {
             _clientFactory = clientFactory;
         }
