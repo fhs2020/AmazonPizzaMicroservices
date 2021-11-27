@@ -17,14 +17,38 @@ namespace AmazonPizza.Services.ProductAPI.Repository
             _mapper = mapper;
         }
 
-        public Task<ProductsDto> CreateUpdateProduct(ProductsDto productDto)
+        public async Task<ProductsDto> CreateUpdateProduct(ProductsDto productDto)
         {
-            throw new NotImplementedException();
+             Product product = _mapper.Map<ProductsDto, Product>(productDto);
+
+             if(product.Id > 0)
+                _dbContext.Update(product);
+             else
+                _dbContext.Products.Add(product);
+
+             await _dbContext.SaveChangesAsync();
+
+            return _mapper.Map<Product, ProductsDto>(product);
         }
 
-        public Task<bool> DeleteProduct(int productId)
+        public async Task<bool> DeleteProduct(int productId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Product product = await _dbContext.Products.FirstOrDefaultAsync(u => u.Id == productId);
+
+                if (product == null)
+                    return false;
+
+                _dbContext.Products.Remove(product);
+                await _dbContext.SaveChangesAsync();
+                return true; 
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public async Task<ProductsDto> GetProductById(int productId)

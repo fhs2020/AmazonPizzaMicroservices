@@ -1,5 +1,6 @@
 using AmazonPizza.Services.ProductAPI;
 using AmazonPizza.Services.ProductAPI.DbContexts;
+using AmazonPizza.Services.ProductAPI.Repository;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
  
@@ -18,10 +19,14 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options => 
                       options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
+
+
 IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
 
 builder.Services.AddSingleton(mapper);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
 
