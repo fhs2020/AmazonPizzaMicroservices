@@ -83,5 +83,36 @@ namespace AmazonPizza.Web.Controllers
 
             return View(model);
         }
+
+        public async Task<IActionResult> ProductDelete(int productId)
+        {
+            var response = await _productService.GetAllProductByIdAsync<ResponseDto>(productId);
+
+            if (response != null && response.IsSuccess)
+            {
+                ProductsDto model = JsonConvert.DeserializeObject<ProductsDto>(Convert.ToString(response.Result));
+                return View(model);
+            }
+
+            return NotFound();
+        }
+
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> ProductDelete(ProductsDto model)
+        {
+            if (ModelState.IsValid)
+            {
+                var response = await _productService.DeleteProductAsync<ResponseDto>(model.Id);
+
+                if (response != null && response.IsSuccess)
+                {
+                    return RedirectToAction(nameof(ProductIndex));
+                }
+            }
+
+            return View(model);
+        }
     }
 }
