@@ -60,10 +60,10 @@ namespace AmazonPizza.Web.Controllers
             if (response != null && response.IsSuccess)
             {
                 ProductsDto model = JsonConvert.DeserializeObject<ProductsDto>(Convert.ToString(response.Result));
-                return RedirectToAction(nameof(ProductIndex));
+                return View(model);
             }
 
-            return View();
+            return NotFound();
         }
 
 
